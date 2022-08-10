@@ -62,12 +62,6 @@ double hoc_Exp(double x) {
         if (check_fe_except) {
             std::feraiseexcept(FE_OVERFLOW);
         }
-        if (++hoc_errno_count < MAXERRCOUNT) {
-            fprintf(stderr, "exp(%g) out of range, returning exp(700)\n", x);
-        }
-        if (hoc_errno_count == MAXERRCOUNT) {
-            fprintf(stderr, "No more errno warnings during this execution\n");
-        }
         return exp(700.);
     }
     return exp(x);

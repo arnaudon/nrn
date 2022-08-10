@@ -654,11 +654,11 @@ void hoc_execerror_mes(const char* s, const char* t, int prnt) { /* recover from
     hoc_ctp = hoc_cbuf;
     *hoc_ctp = '\0';
     // There used to be some logic here to abort here if we are inside an OcJump call.
-#if NRNMPI
-    if (nrnmpi_numprocs_world > 1 && nrn_mpiabort_on_error_) {
-        nrnmpi_abort(-1);
-    }
-#endif
+//#if NRNMPI
+//    if (nrnmpi_numprocs_world > 1 && nrn_mpiabort_on_error_) {
+//        nrnmpi_abort(-1);
+//    }
+//#endif
     hoc_execerror_messages = 1;
     if (hoc_fin && hoc_pipeflag == 0 && (!nrn_fw_eq(hoc_fin, stdin) || !nrn_istty_)) {
         IGNORE(nrn_fw_fseek(hoc_fin, 0L, 2)); /* flush rest of file */
