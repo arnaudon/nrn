@@ -19,14 +19,8 @@
 #define NRN_MULTISEND 1
 #endif
 
-/* define to 1 if you want parallel distributed cells (and gap junctions) */
-#define PARANEURON 1
-
 /* define to 1 if you want the MUSIC - MUlti SImulation Coordinator */
 #undef NRN_MUSIC
 
 /* define to the dll path if you want to load automatically */
 #undef DLL_DEFAULT_FNAME
-
-/* Number of times to retry a failed open */
-#undef FILE_OPEN_RETRY

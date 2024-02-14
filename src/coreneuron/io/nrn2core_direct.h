@@ -28,7 +28,7 @@ extern int (*nrn2core_get_global_int_item_)(const char* name);
 extern int (*nrn2core_get_dat1_)(int tid,
                                  int& n_presyn,
                                  int& n_netcon,
-                                 int*& output_gid,
+                                 std::vector<int>& output_gid,
                                  int*& netcon_srcgid,
                                  std::vector<int>& netcon_negsrcgid_tid);
 
@@ -59,6 +59,7 @@ extern int (*nrn2core_get_dat2_mech_)(int tid,
                                       int*& nodeindices,
                                       double*& data,
                                       int*& pdata,
+                                      std::vector<uint32_t>& nmodlrandom,
                                       std::vector<int>& pointer2type);
 
 extern int (*nrn2core_get_dat2_3_)(int tid,
@@ -121,5 +122,8 @@ extern int (*nrn2core_all_spike_vectors_return_)(std::vector<double>& spikevec,
 extern void (*nrn2core_all_weights_return_)(std::vector<double*>& weights);
 
 /* get data array pointer from NEURON to copy into. */
-extern size_t (*nrn2core_type_return_)(int type, int tid, double*& data, double**& mdata);
+extern size_t (*nrn2core_type_return_)(int type,
+                                       int tid,
+                                       double*& data,
+                                       std::vector<double*>& mdata);
 }  // extern "C"
